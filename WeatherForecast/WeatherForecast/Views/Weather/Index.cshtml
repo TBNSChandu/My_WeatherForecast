@@ -1,0 +1,27 @@
+﻿@model WeatherForecast.Models.Weather
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Weather Forecast</title>
+</head>
+<body>
+    <h2>Weather Forecast</h2>
+
+    @using (Html.BeginForm("Index", "Weather", FormMethod.Post))
+    {
+        <input type="text" name="city" placeholder="Enter city name" />
+        <input type="submit" value="Get Weather" />
+    }
+
+    @if (Model != null)
+    {
+        <h3>Weather in @Model.City</h3>
+        <p>Description: @Model.Description</p>
+        <p>Temperature: @Model.Temperature °C</p>
+        <p>Humidity: @Model.Humidity %</p>
+        <p>Wind Speed: @Model.WindSpeed m/s</p>
+    }
+</body>
+</html>
